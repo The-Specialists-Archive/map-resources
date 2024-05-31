@@ -1,0 +1,12 @@
+the_rooftop_entmap.bsp
+07/19/2021
+
+By Dementei and Kr@zZy for The Specialists mod.
+
+Dementei made the models, rooms and general layout.
+
+Kr@zZy made various entities for the level.
+
+the_rooftop_entmap.txt written by Kr@zZy.
+
+-Enjoy!
