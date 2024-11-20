@@ -1,0 +1,68 @@
+Explanation of maps and filetypes in Half-Life / The Specialists
+
+
+* BSP
+- The map files themselves, located under ts/maps/. They contain:
+- World geometry (buildings, terrain, the lightmap shading them, etc)
+- Entities (such as doors, player spawns, logic systems, locations of sounds and prop models, etc.)
+- Sometimes textures (images painting the geometry) are embedded into the BSP as well
+- Can be easily browsed and looked around in 3D without having to launch the game by using Crafty:
+http://nemesis.thewavelength.net/index.php?p=46
+Note that Crafty will not display models in the map because TS maps use ts_model, a TS-specific model entity
+EDIT: Aurora recommends NewBSPGuy - https://github.com/UnrealKaraulov/newbspguy
+
+
+* RMF, JMF, MAP
+- Editable map source files, which players and servers don't generally need unless server owners wish to alter the map. Note that source files cannot be obtained from compiled, finished maps (BSP files). There are programs that decompile BSP files but the result is usually a completely unusable approximation with messed up geometry.
+  
+  
+* MDL
+- Model files, located under ts/models/. They include:
+- Player models (these MUST be under ts/models/player/modelname/modelname.mdl or they won't work)
+- Guns, items, view models, etc.
+- Map prop models (such as trees, cars, trash, etc.) typically located under ts/models/mapname but can also be found elsewhere
+- JHLMV can be used even by novice users to view models, edit model textures or scale them smaller/bigger:
+https://gamebanana.com/tools/4779
+- Crafty can also view model files but is not as good for this purpose
+
+
+* WAV
+- Sound files under ts/sound/.
+- They must be in 11/22kHz 8-bit PCM format
+- Looping sounds (music, ambience) need cue points at the start and end of the sound, respectively named start_cue and end_cue.
+- Goldwave is one (of countless others) audio editor that can be used to edit sound format and insert cue points:
+https://www.goldwave.com/
+  
+
+* SPR
+- 2D sprites, located under ts/sprites/.
+- Glows sometimes seen on lights
+- Particles coming from broken glass, concrete, etc.
+- Muzzle flashes, explosions, and other effects
+- HUD elements
+- Sprite Explorer views sprites:
+https://gamebanana.com/tools/4775
+
+  
+* WAD
+- Texture archives, located directly under the ts/ folder.
+- Wally can browse WAD files and also edit or create new ones:
+https://gamebanana.com/tools/4774
+
+Random information about WAD textures:
+- If texture dimensions are not multiples of 2 (e.g. 16x64, 64x64, 128x128, 256x256, etc.) they will look slightly blurred, as OpenGL and other modern renderers will first convert them to those dimensions before they are rendered ingame. This was not the case with the pixelated software renderer from the 90s Quake era, but sadly the practise of using random texture sizes has persisted from back then.
+- Surfaces in maps will be split into squares (2 tris/polygons each) at every section where the texture images repeats/tiles. Therefore, contrary to popular belief, larger textures are actually better for performance in HL than smaller ones, as they repeat less frequently and therefore generate fewer triangles. However, anything larger than 256x256 will be split into 256x256 sections, so this benefit does not apply to textures larger than 256x256.
+
+
+* TGA
+- Image files for 2D skyboxes, located under ts/gfx/env/.
+- Each set contains 6 images, e.g. skyboxup, skyboxdn, skyboxlf, skyboxrt, skyboxft, skyboxbk
+- Can be viewed and edited using almost any image editor.
+
+
+* RES
+- Resource lists, under ts/maps/
+- Must have the same name as the BSP file
+- Tell the server what files to upload to clients when joining a server with said map running. While some files (MDL, WAV) are always downloaded by the client automatically, others (SPR, TGA, WAD) are not. Missing a SPR or WAD will result in a crash, while missing TGA files will cause the client to see the default HL desert skybox instead. Therefore it is a good practise to have a RES file for each map that lists all resources used by the map.
+- RES files can be generated from BSPs using RESGen:
+https://gamebanana.com/tools/4777
