@@ -1,0 +1,92 @@
+----------------------
+TS-DUSTVILLE by SireCP
+----------------------
+Get ready to kick some asses in the narrow streets, many houses and on the roofs of Dustville!
+
+This is sort of a tribute map to The Specialists and the rest of the Half-Life mods of ye Goldensource days.
+It's kind of big, and you better have a decent graphics card in that box of yours.
+
+Don't shoot that blimp...!
+
+
+---------
+THE STORY
+---------
+In the early night of the 2nd Christmas day of 2008, me and bXi were playing The Specialists mod for Half-Life, when I got the idea to rebuild one of my old maps for this mod. I had been breeding on an idea for my 'Goldsource Tribute map' for a while, and this rebuild was going to be "the most kick ass village ever with at least 3 levels of height and loads of break-and-jump-through-ables and shitloads of superjumps and massive explosions and everything".
+
+Thus, on January 2nd I started building that map. It was an epic journey, where a new town was created from blocks, sweat and textures, a sun started lighting up the streets and cast shadows and the sounds of an ocean broke through the silence while palm trees, beach chairs and powerups popped out of the ground, all this while an everlasting battle with planes, clipnodes and render limits raged in the background. But in the end, ts_dustville prevailed!
+
+
+-------------------
+KNOWN BUGS/FEATURES
+-------------------
+Q: Is there a bot nodes file included?
+A: Yes, and I made it myself! The bots barely hump anything and sometimes even superjump to a rooftop.
+
+Q: I get stuck in some places near the borders of the lower cliff faces.
+A: The Goldsource compile tools cannot cope that well with angled faces and applies clipnodes wrongly.
+   You aren't going to play there a lot anyway.
+   The main structure already eats all the memory, I cannot put clipboxes all over the cliffs.
+
+Q: I hit some invisible wall when I go too far away from the island.
+   I can't jump higher then the clock display of the tower.
+   I won't land when I dive in/can't swim in/go beneath the water.
+A: That is intentional; you have also probably notices you can see the "end of the world", and it's square!
+   This has nothing to do with a whole new crazy flat earth theory but is due to Goldsource limitations.
+   I can tell you a whole story about planes, clipnodes and polygons but it comes down to this: The engine can't handle much more.
+
+Q: Nearly none of the models can be broken / some models have no clipping.
+A: Again, this is due to engine limitations. I tried to give the most obvious models a clipbox, but some smaller ones don't have one. None of the models coming from .mdl files can be broken and after some consideration I decided that if they don't break, nothing breaks except for the stuff that should break. This should also help lower the number of entities spawned thus keeping the entity render limits reasonably in check.
+
+Q: The ambience does not play when I arrive at / go away & back to the church (tower). It takes a while before it starts again.
+A: I had to put these ambiences in a triggered loop. If anyone is able to edit the related sound files to make them loop, I'd be thankful. In the meanwhile this is a different solution, these sounds are triggered at least every 30 seconds, so the silences won't be that long.
+Related sound files: church_muslim.wav and clocktick2.wav
+
+If you find another bug or have general comments on the map, feel free to contact me at robert.dot.tigelaar@at@gmail.dot.com
+
+
+-------
+CREDITS
+-------
+Design & Construction:	SireCP
+Testing & Debugging:	SireCP / bXi
+Construction Time:	1 month
+Editors / Tools Used:	Valve Hammer 3.5, pak extractor, bsp2map, wally, kpaint, audacity
+Compile Tools Used:	hlcsg/hlbsp/hlvis/hlrad
+
+Most Textures, Sounds and Models taken from Half-Life, Counterstrike 1.5 and The Specialists 2.1 / 3.0
+Sprites from The Specialists
+
+Duff blimp texture from the Internets, edited by SireCP
+TV Set texture by 3D-Mike, edited by SireCP
+
+Cuckoo and Tick Tock clock sounds from the Internets
+Church music from Postal 2
+
+
+-------------------
+FINAL COMPILE STATS
+-------------------
+Object names  Objects/Maxobjs  Memory / Maxmem  Fullness
+------------  ---------------  ---------------  --------
+models            133/400         8512/25600    (33.2%)
+planes          30752/32767     615040/655340   (93.9%)
+vertexes        20298/65535     243576/786420   (31.0%)
+nodes            7620/32767     182880/786408   (23.3%)
+texinfos         1818/32767      72720/1310680  ( 5.5%)
+faces           15146/65535     302920/1310700  (23.1%)
+clipnodes       32006/32767     256048/262136   (97.7%)
+leaves           4556/8192      127568/229376   (55.6%)
+marksurfaces    18485/65535      36970/131070   (28.2%)
+surfedges       69472/512000    277888/2048000  (13.6%)
+edges           36891/256000    147564/1024000  (14.4%)
+texdata          [variable]    4148888/4194304  (98.9%)
+lightdata        [variable]    3516243/4194304  (83.8%)
+visdata          [variable]     547351/2097152  (26.1%)
+entdata          [variable]      93107/524288   (17.8%)
+84 textures referenced
+=== Total BSP file data space used: 10577275 bytes ===
+
+real    390m28.661s
+user    317m8.299s
+sys     4m4.121s
